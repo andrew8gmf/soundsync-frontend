@@ -1,0 +1,15 @@
+name: Commit Lint
+
+on: [pull_request]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npx commitlint --from=origin/main --to=HEAD
