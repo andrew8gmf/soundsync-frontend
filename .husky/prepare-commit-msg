@@ -1,10 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-OS="$(uname -s)"
-
-if [ "$OS" = "Linux" ] || [ "$OS" = "Darwin" ]; then
-  npx --no-install cz --hook || true
-else
-  npx --no-install cz --hook || exit 0
-fi
+npx --no-install cz --hook || true
